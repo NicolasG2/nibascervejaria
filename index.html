@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibas Beer | Início</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/sections.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <img src="assets/img/logo-nibas.png" alt="Logo Nibas" style="border-radius: 10px;">
+            <h1>Nibas Beer</h1>
+            <p style="margin-top: 10px; font-style: italic;">Cerveja artesanal com personalidade e Rock na alma.</p>
+        </div>
+    </div>
+
+    <!-- BOTÃO DE MUDO -->
+    <div id="mute-toggle" title="Ativar/Desativar Sons">🔊</div>
+
+    <!-- HEADER FIXO -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: white;">
+                    <h1>Nibas <span>Beer</span></h1>
+                </a>
+            </div>
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/backstage.html">Backstage</a></li>
+                    <li><a href="pages/tap-list.html">Tap List</a></li>
+                    <li><a href="pages/rock-kitchen.html">Rock Kitchen</a></li>
+                    <li><a href="pages/drinks.html">Drinks</a></li>
+                    <li><a href="pages/on-tour.html">On Tour</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <ul>
+                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="pages/backstage.html" onclick="toggleMenu()">Backstage</a></li>
+                <li><a href="pages/tap-list.html" onclick="toggleMenu()">Tap List</a></li>
+                <li><a href="pages/rock-kitchen.html" onclick="toggleMenu()">Rock Kitchen</a></li>
+                <li><a href="pages/drinks.html" onclick="toggleMenu()">Drinks</a></li>
+                <li><a href="pages/on-tour.html" onclick="toggleMenu()">On Tour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h2>O Sabor da Fermentação Artesanal</h2>
+                <p>Desde 2017, a primeira cervejaria artesanal de Matinhos. Venha conhecer o nosso Rock & Roll!</p>
+                <a href="pages/tap-list.html" class="btn-primary">Conheça nossa Tap List</a>
+            </div>
+        </section>
+
+        <section class="section-bg-light" style="padding: 60px 0; text-align: center;">
+            <div class="container">
+                <p style="max-width: 900px; margin: 0 auto; font-size: 1.4rem; font-style: italic; color: #333;">
+                    "Seis cervejas autorais, edições sazonais, rótulos convidados e um pub onde cada pint vem acompanhado de boa música, boa comida e histórias para brindar."
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER FIXO -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Nibas Beer - Matinhos, PR. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-target'));
+                        let current = 0;
+                        const increment = target / 40;
+                        const updateCount = () => {
+                            if (current < target) {
+                                current += increment;
+                                el.innerText = Math.ceil(current);
+                                setTimeout(updateCount, 30);
+                            } else {
+                                el.innerText = target;
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

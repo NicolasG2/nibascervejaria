@@ -1,0 +1,10 @@
+:root {
+    --primary-color: #d4a017; /* Ouro/Dourado */
+    --bg-dark: #121212;
+    --bg-light: #f4f4f4;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --bg-card: #1e1e1e;
+    --font-header: 'Oswald', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibas Beer | Backstage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
+    <link rel="stylesheet" href="../assets/css/sections.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+    <!-- BOTÃO DE MUDO -->
+    <div id="mute-toggle" title="Ativar/Desativar Sons">🔊</div>
+
+    <!-- HEADER FIXO (com links apontando para a raiz com ../) -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: white;">
+                    <h1>Nibas <span>Beer</span></h1>
+                </a>
+            </div>
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="backstage.html">Backstage</a></li>
+                    <li><a href="tap-list.html">Tap List</a></li>
+                    <li><a href="rock-kitchen.html">Rock Kitchen</a></li>
+                    <li><a href="drinks.html">Drinks</a></li>
+                    <li><a href="on-tour.html">On Tour</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <ul>
+                <li><a href="../index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="backstage.html" onclick="toggleMenu()">Backstage</a></li>
+                <li><a href="tap-list.html" onclick="toggleMenu()">Tap List</a></li>
+                <li><a href="rock-kitchen.html" onclick="toggleMenu()">Rock Kitchen</a></li>
+                <li><a href="drinks.html" onclick="toggleMenu()">Drinks</a></li>
+                <li><a href="on-tour.html" onclick="toggleMenu()">On Tour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-bg-light" style="padding-top: 100px;" onmouseenter="playSound('guitar')">
+            <div class="container historia-grid">
+                <div class="historia-text">
+                    <h2>Nossa História</h2>
+                    
+                    <p>A ideia de fazer a própria cerveja surgiu a partir da descoberta da cerveja artesanal e de entender que uma cerveja vai muito além de ser estupidamente gelada: ela tem sabor, cor e aromas.</p>
+                    
+                    <p>Tudo começou com as primeiras brassagens em <strong>2014, em Curitiba</strong>, ao lado do amigo Leonardo. Foram erros, risadas, e algumas cervejas intragáveis até que, em <strong>2017</strong>, já em Matinhos, as receitas começaram a ganhar um padrão e qualidade. Foi aí que surgiu a ideia de formalizar o negócio.</p>
+                    
+                    <p>Essa etapa foi difícil. <strong>Bem na pandemia</strong>, em um momento em que não era possível recorrer a outras cervejarias para pedir ajuda, o conhecimento veio através de muita pesquisa em sites, fóruns e YouTube. Foram meses de estudo e dedicação.</p>
+                    
+                    <p>Depois de muito esforço, conseguimos o nosso registro no <strong>MAPA em Abril de 2022</strong>, tornando-nos a primeira cervejaria artesanal registrada em Matinhos. De lá para cá, os desafios não pararam, mas seguimos firmes porque não desistimos.</p>
+                    
+                    <p>Então, vamos olhar para trás para saber como dar mais alguns passos e, quem sabe, lá na frente, olhar para trás novamente e saber que vencemos.</p>
+
+                    <div class="citacao-destaque">
+                        <i class="fas fa-quote-left" style="color: var(--primary-color); margin-right: 10px;"></i>
+                        Assim como uma boa linha de baixo sustenta uma grande banda, acreditamos que uma boa cerveja começa por uma base sólida: ingredientes de qualidade, tempo e dedicação.
+                    </div>
+
+                </div>
+                <div class="historia-img">
+                    <img src="../assets/img/producao-2014.png" alt="Primeiras brassagens">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER FIXO -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Nibas Beer - Matinhos, PR. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

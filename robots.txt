@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nibascervejaria.com.br/sitemap.xml

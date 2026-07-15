@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibas Beer | On Tour</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../favicon.ico">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
+    <link rel="stylesheet" href="../assets/css/sections.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+    <div id="mute-toggle" title="Ativar/Desativar Sons">🔊</div>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: white;">
+                    <h1>Nibas <span>Beer</span></h1>
+                </a>
+            </div>
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="backstage.html">Backstage</a></li>
+                    <li><a href="tap-list.html">Tap List</a></li>
+                    <li><a href="rock-kitchen.html">Rock Kitchen</a></li>
+                    <li><a href="drinks.html">Drinks</a></li>
+                    <li><a href="on-tour.html">On Tour</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <ul>
+                <li><a href="../index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="backstage.html" onclick="toggleMenu()">Backstage</a></li>
+                <li><a href="tap-list.html" onclick="toggleMenu()">Tap List</a></li>
+                <li><a href="rock-kitchen.html" onclick="toggleMenu()">Rock Kitchen</a></li>
+                <li><a href="drinks.html" onclick="toggleMenu()">Drinks</a></li>
+                <li><a href="on-tour.html" onclick="toggleMenu()">On Tour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-bg-dark" style="padding-top: 100px;" onmouseenter="playSound('applause')">
+            <div class="container contato-container">
+                <h2 class="section-title">On Tour</h2>
+                <div class="contato-grid">
+                    <div class="info-contato">
+                        <h3><i class="fas fa-map-marker-alt"></i> Endereço</h3>
+                        <p>Rua Miraguaia, 114 - Matinhos, PR</p>
+                        <h3><i class="far fa-clock"></i> Horário</h3>
+                        <p>Terça a Sábado a partir das <strong>17:00h</strong></p>
+                        <h3><i class="fas fa-phone-alt"></i> Contatos</h3>
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/554196642251" target="_blank">(41) 9664-2251</a></p>
+                        <p><i class="fas fa-envelope"></i> cervejariahufeisenbier@gmail.com</p>
+                    </div>
+                    <div class="social-contato">
+                        <h3>Redes Sociais</h3>
+                        <p>Siga nossa turnê!</p>
+                        <div class="social-buttons">
+                            <a href="https://instagram.com/hufeisenbiernibas" target="_blank" class="btn-social instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                            <a href="https://facebook.com/hufeisenbier" target="_blank" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Nibas Beer - Matinhos, PR. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/loader.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

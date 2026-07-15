@@ -1,0 +1,38 @@
+.hero {
+    height: 85vh;
+    /* Troque pelo caminho da sua imagem de fundo em assets/img */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/banner-hufeisen.png'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+}
+.hero-content h2 {
+    font-family: var(--font-header);
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: var(--text-dark);
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn-primary:hover {
+    background-color: #b88a1a;
+    transform: scale(1.05);
+}

@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+    .menu-desktop { display: none; }
+    .menu-hamburger { display: block; }
+    .hero-content h2 { font-size: 2.5rem; }
+    .historia-grid { grid-template-columns: 1fr; }
+    .contato-grid { flex-direction: column; align-items: flex-start; }
+    .social-buttons { justify-content: center; }
+}

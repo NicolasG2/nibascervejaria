@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibas Beer | Rock Kitchen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
+    <link rel="stylesheet" href="../assets/css/sections.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+    <div id="mute-toggle" title="Ativar/Desativar Sons">🔊</div>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: white;">
+                    <h1>Nibas <span>Beer</span></h1>
+                </a>
+            </div>
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="backstage.html">Backstage</a></li>
+                    <li><a href="tap-list.html">Tap List</a></li>
+                    <li><a href="rock-kitchen.html">Rock Kitchen</a></li>
+                    <li><a href="drinks.html">Drinks</a></li>
+                    <li><a href="on-tour.html">On Tour</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <ul>
+                <li><a href="../index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="backstage.html" onclick="toggleMenu()">Backstage</a></li>
+                <li><a href="tap-list.html" onclick="toggleMenu()">Tap List</a></li>
+                <li><a href="rock-kitchen.html" onclick="toggleMenu()">Rock Kitchen</a></li>
+                <li><a href="drinks.html" onclick="toggleMenu()">Drinks</a></li>
+                <li><a href="on-tour.html" onclick="toggleMenu()">On Tour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-bg-light" style="padding-top: 100px;" onmouseenter="playSound('drum')">
+            <div class="container">
+                <h2 class="section-title">Rock Kitchen</h2>
+                
+                <div class="cardapio-grid">
+                    <div class="item-cardapio" style="background: white; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                        <img src="../assets/img/bolinho-queijo.png" alt="Highway to Cheese" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                        <h3>Highway to Cheese</h3>
+                        <span class="peso">Bolinho de Mandioca com Queijo (500g)</span>
+                        <p class="harmonizacao" style="font-size: 0.9rem; color: #666; margin-top: 5px;"><i class="fas fa-beer" style="color: var(--primary-color);"></i> <strong>Harmoniza:</strong> Sweet Lu</p>
+                    </div>
+
+                    <div class="item-cardapio" style="background: white; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                        <img src="../assets/img/bolinho-mandioca-carne-seca.png" alt="Blitzkrieg Bop" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                        <h3>Blitzkrieg Bop</h3>
+                        <span class="peso">Bolinho de Mandioca com Carne Seca (300g)</span>
+                        <p class="harmonizacao" style="font-size: 0.9rem; color: #666; margin-top: 5px;"><i class="fas fa-beer" style="color: var(--primary-color);"></i> <strong>Harmoniza:</strong> Ruiva 77</p>
+                    </div>
+
+                    <div class="item-cardapio" style="background: white; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                        <img src="../assets/img/isca-pescada.png" alt="Smoke on the Water" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                        <h3>Smoke on the Water</h3>
+                        <span class="peso">Isca de Pescada (500g)</span>
+                        <p class="harmonizacao" style="font-size: 0.9rem; color: #666; margin-top: 5px;"><i class="fas fa-beer" style="color: var(--primary-color);"></i> <strong>Harmoniza:</strong> Galática</p>
+                    </div>
+
+                    <div class="item-cardapio" style="background: white; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                        <img src="../assets/img/camarao-empanado.png" alt="Stairway to Heaven" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                        <h3>Stairway to Heaven</h3>
+                        <span class="peso">Camarão Empanado (500g)</span>
+                        <p class="harmonizacao" style="font-size: 0.9rem; color: #666; margin-top: 5px;"><i class="fas fa-beer" style="color: var(--primary-color);"></i> <strong>Harmoniza:</strong> Sexy Babe</p>
+                    </div>
+
+                    <div class="item-cardapio" style="background: white; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                        <img src="../assets/img/dadinho-tapioca.png" alt="Thunderstruck" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                        <h3>Thunderstruck</h3>
+                        <span class="peso">Dadinho de Tapioca c/ Queijo e Geleia (500g)</span>
+                        <p class="harmonizacao" style="font-size: 0.9rem; color: #666; margin-top: 5px;"><i class="fas fa-beer" style="color: var(--primary-color);"></i> <strong>Harmoniza:</strong> Falcão Negro</p>
+                    </div>
+
+                    <div class="item-cardapio" style="background: white; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                        <img src="../assets/img/mini-kibe.png" alt="Back in Black" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                        <h3>Back in Black</h3>
+                        <span class="peso">Mini Kibe (500g)</span>
+                        <p class="harmonizacao" style="font-size: 0.9rem; color: #666; margin-top: 5px;"><i class="fas fa-beer" style="color: var(--primary-color);"></i> <strong>Harmoniza:</strong> Comanche</p>
+                    </div>
+
+                    <div class="item-cardapio" style="background: white; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                        <img src="../assets/img/batata-crinkle.png" alt="Ace of Spades" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                        <h3>Ace of Spades</h3>
+                        <span class="peso">Batata Crinkle (400g)</span>
+                        <p class="harmonizacao" style="font-size: 0.9rem; color: #666; margin-top: 5px;"><i class="fas fa-beer" style="color: var(--primary-color);"></i> <strong>Harmoniza:</strong> Sweet Lu</p>
+                    </div>
+
+                    <div class="item-cardapio" style="background: white; padding: 15px; border-radius: 8px; display: flex; flex-direction: column; gap: 10px;">
+                        <img src="../assets/img/sanduiche-pernil.png" alt="Crazy Train" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+                        <h3>Crazy Train</h3>
+                        <span class="peso">Sanduíche de Pernil com Batata Rústica</span>
+                        <p class="harmonizacao" style="font-size: 0.9rem; color: #666; margin-top: 5px;"><i class="fas fa-beer" style="color: var(--primary-color);"></i> <strong>Harmoniza:</strong> Ruiva 77</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+     <footer>
+        <div class="container">
+            <p>&copy; 2026 Nibas Beer - Matinhos, PR. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/loader.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

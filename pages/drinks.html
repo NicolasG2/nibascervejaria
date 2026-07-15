@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibas Beer | Drinks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
+    <link rel="stylesheet" href="../assets/css/sections.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+    <style>
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 99999; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+        .modal-overlay.active { display: flex; }
+        .modal-content { background: #1e1e1e; max-width: 800px; width: 90%; padding: 30px; border-radius: 15px; display: flex; gap: 30px; position: relative; border: 1px solid var(--primary-color); box-shadow: 0 10px 30px rgba(0,0,0,0.8); color: #fff; max-height: 90vh; }
+        .modal-close { position: absolute; top: -15px; right: -15px; background: #333; color: #fff; border: 1px solid var(--primary-color); border-radius: 50%; width: 35px; height: 35px; font-size: 1.2rem; cursor: pointer; transition: 0.3s; }
+        .modal-close:hover { background: var(--primary-color); color: #000; transform: scale(1.1); }
+        .modal-img { flex: 1; max-width: 300px; }
+        .modal-img img { width: 100%; height: auto; border-radius: 10px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .modal-info { flex: 1.5; display: flex; flex-direction: column; justify-content: center; }
+        .modal-info h2 { font-family: var(--font-header); color: var(--primary-color); font-size: 2.2rem; margin-bottom: 5px; }
+        .modal-info .tipo { color: #aaa; font-size: 1rem; margin-bottom: 15px; display: block; }
+        .modal-info p { color: #ddd; line-height: 1.6; margin-bottom: 15px; }
+        .modal-info .dados { display: flex; gap: 20px; background: #2a2a2a; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+        .modal-info .dados span { font-size: 0.9rem; }
+        .modal-info .dados strong { color: var(--primary-color); }
+        .modal-info .ingredientes { font-size: 0.95rem; color: #ccc; border-top: 1px solid #333; padding-top: 10px; }
+        .modal-info .ingredientes strong { color: #fff; }
+        @media (max-width: 768px) { .modal-content { flex-direction: column; padding: 20px; } .modal-img { max-width: 100%; text-align: center; } }
+        .card-drink .info-drink { display: flex; justify-content: center; gap: 15px; margin: 10px 0; font-size: 0.9rem; background: rgba(255,255,255,0.1); padding: 5px; border-radius: 5px; }
+        .card-drink .info-drink span { color: #eee; }
+    </style>
+</head>
+<body>
+
+    <div id="mute-toggle" title="Ativar/Desativar Sons">🔊</div>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: white;">
+                    <h1>Nibas <span>Beer</span></h1>
+                </a>
+            </div>
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="backstage.html">Backstage</a></li>
+                    <li><a href="tap-list.html">Tap List</a></li>
+                    <li><a href="rock-kitchen.html">Rock Kitchen</a></li>
+                    <li><a href="drinks.html">Drinks</a></li>
+                    <li><a href="on-tour.html">On Tour</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <ul>
+                <li><a href="../index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="backstage.html" onclick="toggleMenu()">Backstage</a></li>
+                <li><a href="tap-list.html" onclick="toggleMenu()">Tap List</a></li>
+                <li><a href="rock-kitchen.html" onclick="toggleMenu()">Rock Kitchen</a></li>
+                <li><a href="drinks.html" onclick="toggleMenu()">Drinks</a></li>
+                <li><a href="on-tour.html" onclick="toggleMenu()">On Tour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-bg-dark" style="padding-top: 100px;">
+            <div class="container">
+                <h2 class="section-title">Nossos Drinks</h2>
+                <p style="text-align: center; color: #ccc; margin-bottom: 40px;">Toque em um card para descobrir os detalhes de cada drink.</p>
+                
+                <div class="cervejas-grid">
+                    <div class="card-cerveja card-drink" onclick="openDrinkModal('vinho-branco')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/vinho-branco.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Vinho Branco</h3>
+                        <span class="tipo">Seco / Suave</span>
+                        <div class="info-drink"><span>Uvas brancas selecionadas</span></div>
+                    </div>
+
+                    <div class="card-cerveja card-drink" onclick="openDrinkModal('vinho-tinto')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/vinho-tinto.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Vinho Tinto</h3>
+                        <span class="tipo">Seco / Encorpado</span>
+                        <div class="info-drink"><span>Uvas tintas maduras</span></div>
+                    </div>
+
+                    <div class="card-cerveja card-drink" onclick="openDrinkModal('caipirinha')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/caipirinha.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Caipirinha</h3>
+                        <span class="tipo">Clássico Nacional</span>
+                        <div class="info-drink"><span>Limão, açúcar e gelo</span></div>
+                    </div>
+
+                    <div class="card-cerveja card-drink" onclick="openDrinkModal('moscow-mule')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/moscow-mule.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Moscow Mule</h3>
+                        <span class="tipo">Refrescante</span>
+                        <div class="info-drink"><span>Cobre, limão e gengibre</span></div>
+                    </div>
+
+                    <div class="card-cerveja card-drink" onclick="openDrinkModal('pink-mule')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/pink-mule.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Pink Mule</h3>
+                        <span class="tipo">Vibrante & Frutado</span>
+                        <div class="info-drink"><span>Toque de romã e flores</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="drink-modal" class="modal-overlay" onclick="closeDrinkModalOutside(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDrinkModal()">✕</button>
+            <div class="modal-img"><img id="modal-drink-img" src="" alt="Drink"></div>
+            <div class="modal-info">
+                <h2 id="modal-drink-title">Nome do Drink</h2>
+                <span class="tipo" id="modal-drink-tipo">Categoria</span>
+                <div class="dados" id="modal-drink-dados">
+                    <span><strong>Tipo:</strong> <span id="modal-drink-categoria">Clássico</span></span>
+                </div>
+                <p id="modal-drink-desc">Descrição sensorial aqui.</p>
+                <div class="ingredientes">
+                    <i class="fas fa-cocktail" style="color: var(--primary-color); margin-right: 5px;"></i>
+                    <strong>Ingredientes:</strong> <span id="modal-drink-ingredientes">Lista de ingredientes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <footer>
+        <div class="container">
+            <p>&copy; 2026 Nibas Beer - Matinhos, PR. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/loader.js"></script>
+    <script src="../assets/js/app.js"></script>
+    
+    <script>
+        const drinkData = {
+            'vinho-branco': { img: '../assets/img/vinho-branco.png', title: 'Vinho Branco', tipo: 'Seco / Suave', categoria: 'Vinho', desc: 'Leve, refrescante e com notas frutadas.', ingredientes: 'Uvas brancas selecionadas, fermentação controlada.' },
+            'vinho-tinto': { img: '../assets/img/vinho-tinto.png', title: 'Vinho Tinto', tipo: 'Seco / Encorpado', categoria: 'Vinho', desc: 'Cor rubi, sabor encorpado e taninos suaves.', ingredientes: 'Uvas tintas maduras, envelhecimento em barris.' },
+            'caipirinha': { img: '../assets/img/caipirinha.png', title: 'Caipirinha', tipo: 'Clássico Nacional', categoria: 'Coquetel', desc: 'O drink mais brasileiro! Equilíbrio entre acidez, doce e força da cachaça.', ingredientes: 'Cachaça, limão tahiti, açúcar e gelo.' },
+            'moscow-mule': { img: '../assets/img/moscow-mule.png', title: 'Moscow Mule', tipo: 'Refrescante', categoria: 'Coquetel', desc: 'Servido na caneca de cobre, traz frescor do limão e o toque do gengibre.', ingredientes: 'Vodka, suco de limão, ginger beer e hortelã.' },
+            'pink-mule': { img: '../assets/img/pink-mule.png', title: 'Pink Mule', tipo: 'Vibrante & Frutado', categoria: 'Coquetel', desc: 'Uma versão charmosa do Mule. Cor vibrante e sabor frutado.', ingredientes: 'Vodka, suco de romã, xarope de hibisco e ginger beer.' }
+        };
+        function openDrinkModal(id) {
+            const data = drinkData[id]; if(!data) return;
+            document.getElementById('modal-drink-img').src = data.img;
+            document.getElementById('modal-drink-title').textContent = data.title;
+            document.getElementById('modal-drink-tipo').textContent = data.tipo;
+            document.getElementById('modal-drink-categoria').textContent = data.categoria;
+            document.getElementById('modal-drink-desc').textContent = data.desc;
+            document.getElementById('modal-drink-ingredientes').textContent = data.ingredientes;
+            document.getElementById('drink-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDrinkModal() { document.getElementById('drink-modal').classList.remove('active'); document.body.style.overflow = 'auto'; }
+        function closeDrinkModalOutside(event) { if (event.target === document.getElementById('drink-modal')) closeDrinkModal(); }
+    </script>
+</body>
+</html>

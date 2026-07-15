@@ -1,0 +1,150 @@
+section { padding: 80px 0; }
+.section-title {
+    font-family: var(--font-header);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    display: block;
+    margin: 10px auto 0;
+}
+.section-bg-light { background-color: var(--bg-light); color: var(--text-dark); }
+.section-bg-dark { background-color: var(--bg-dark); color: var(--text-light); }
+
+/* História */
+.historia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+.historia-text h2 { font-family: var(--font-header); font-size: 2.5rem; margin-bottom: 20px; }
+.historia-text p { margin-bottom: 15px; font-size: 1.1rem; }
+.historia-img img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+/* Cervejas */
+.cervejas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.card-cerveja {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    border-bottom: 5px solid var(--primary-color);
+}
+.card-cerveja:hover { transform: translateY(-10px); }
+.cerveja-img { width: 100%; height: 120px; border-radius: 5px; margin-bottom: 15px; }
+.card-cerveja h3 { font-size: 1.6rem; margin: 5px 0; }
+.card-cerveja .tipo { display: block; font-size: 0.9rem; color: var(--primary-color); font-weight: bold; margin-bottom: 10px; }
+.card-cerveja .info { display: flex; justify-content: center; gap: 15px; margin: 10px 0; font-size: 0.9rem; background: rgba(255,255,255,0.1); padding: 5px; border-radius: 5px; }
+.card-cerveja p { font-size: 0.95rem; color: #ccc; }
+
+/* Cardápio */
+.cardapio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.item-cardapio {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    border-left: 4px solid var(--primary-color);
+}
+.item-cardapio h3 { font-size: 1rem; margin-bottom: 5px; color: var(--text-dark); }
+.item-cardapio .peso { font-size: 0.8rem; color: #666; font-weight: bold; }
+.item-cardapio.especial { border-left-color: #cc0000; }
+
+/* Contatos */
+.contato-container { text-align: center; }
+.contato-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 40px;
+    text-align: left;
+    margin-top: 20px;
+}
+.contato-grid h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-color); border-bottom: 2px solid #333; padding-bottom: 5px; display: inline-block; }
+.contato-grid a { color: var(--text-light); text-decoration: none; }
+.contato-grid a:hover { color: var(--primary-color); }
+.info-contato p, .social-contato p { margin-bottom: 15px; }
+.social-buttons { display: flex; gap: 15px; margin-top: 15px; justify-content: flex-start; }
+.btn-social { display: inline-block; padding: 10px 20px; border-radius: 5px; color: white; font-weight: bold; text-decoration: none; transition: 0.3s; }
+.btn-social.instagram { background-color: #E1306C; }
+.btn-social.facebook { background-color: #4267B2; }
+.btn-social:hover { opacity: 0.8; transform: scale(1.05); }
+
+/* SPLASH SCREEN */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0a0a0a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 99999;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+#splash-screen.hidden {
+    opacity: 0;
+}
+.splash-content {
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+.splash-content img {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+.splash-content h1 {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* CONTADORES NUMÉRICOS */
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 0;
+}
+.stat-item {
+    text-align: center;
+}
+.stat-number {
+    font-size: 3.5rem;
+    font-family: var(--font-header);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+.stat-label {
+    font-size: 1.1rem;
+    color: #bbb;
+}

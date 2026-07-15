@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nibas Beer | Tap List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="../favicon.ico">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/hero.css">
+    <link rel="stylesheet" href="../assets/css/sections.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+    <style>
+        /* ESTILOS DO MODAL (POP-UP) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: #1e1e1e;
+            max-width: 800px;
+            width: 90%;
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            gap: 30px;
+            position: relative;
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            color: #fff;
+            max-height: 90vh;
+        }
+        .modal-close {
+            position: absolute;
+            top: -15px; right: -15px;
+            background: #333;
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            border-radius: 50%;
+            width: 35px; height: 35px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .modal-close:hover { background: var(--primary-color); color: #000; transform: scale(1.1); }
+        .modal-img { flex: 1; max-width: 300px; }
+        .modal-img img { width: 100%; height: auto; border-radius: 10px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .modal-info { flex: 1.5; display: flex; flex-direction: column; justify-content: center; }
+        .modal-info h2 { font-family: var(--font-header); color: var(--primary-color); font-size: 2.2rem; margin-bottom: 5px; }
+        .modal-info .tipo { color: #aaa; font-size: 1rem; margin-bottom: 15px; display: block; }
+        .modal-info p { color: #ddd; line-height: 1.6; margin-bottom: 15px; }
+        .modal-info .dados { display: flex; gap: 20px; background: #2a2a2a; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+        .modal-info .dados span { font-size: 0.9rem; }
+        .modal-info .dados strong { color: var(--primary-color); }
+        .modal-info .harmoniza { font-size: 0.95rem; color: #ccc; border-top: 1px solid #333; padding-top: 10px; }
+        .modal-info .harmoniza strong { color: #fff; }
+        @media (max-width: 768px) { .modal-content { flex-direction: column; padding: 20px; } .modal-img { max-width: 100%; text-align: center; } }
+    </style>
+</head>
+<body>
+
+    <div id="mute-toggle" title="Ativar/Desativar Sons">🔊</div>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: white;">
+                    <h1>Nibas <span>Beer</span></h1>
+                </a>
+            </div>
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="backstage.html">Backstage</a></li>
+                    <li><a href="tap-list.html">Tap List</a></li>
+                    <li><a href="rock-kitchen.html">Rock Kitchen</a></li>
+                    <li><a href="drinks.html">Drinks</a></li>
+                    <li><a href="on-tour.html">On Tour</a></li>
+                </ul>
+            </nav>
+            <div class="menu-hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+        <nav class="menu-mobile" id="menuMobile">
+            <ul>
+                <li><a href="../index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="backstage.html" onclick="toggleMenu()">Backstage</a></li>
+                <li><a href="tap-list.html" onclick="toggleMenu()">Tap List</a></li>
+                <li><a href="rock-kitchen.html" onclick="toggleMenu()">Rock Kitchen</a></li>
+                <li><a href="drinks.html" onclick="toggleMenu()">Drinks</a></li>
+                <li><a href="on-tour.html" onclick="toggleMenu()">On Tour</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-bg-dark" style="padding-top: 100px;" onmouseenter="playSound('pour')">
+            <div class="container">
+                <h2 class="section-title">Nossa Tap List</h2>
+                <p style="text-align: center; color: #ccc; margin-bottom: 40px;">Toque em um card para descobrir os detalhes de cada cerveja.</p>
+                
+                <div class="cervejas-grid">
+                    
+                    <div class="card-cerveja" onclick="openModal('galatica')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/galatica.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Galática</h3>
+                        <span class="tipo">IPA</span>
+                        <div class="info"><span><strong>IBU:</strong> 60</span><span><strong>ABV:</strong> 6,0%</span></div>
+                    </div>
+
+                    <div class="card-cerveja" onclick="openModal('ruiva77')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/ruiva-77.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Ruiva 77</h3>
+                        <span class="tipo">Red Ale</span>
+                        <div class="info"><span><strong>IBU:</strong> 33</span><span><strong>ABV:</strong> 7,7%</span></div>
+                    </div>
+
+                    <div class="card-cerveja" onclick="openModal('comanche')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/comanche.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Comanche</h3>
+                        <span class="tipo">American Pale Ale</span>
+                        <div class="info"><span><strong>IBU:</strong> 40</span><span><strong>ABV:</strong> 5,2%</span></div>
+                    </div>
+
+                    <div class="card-cerveja" onclick="openModal('sweetlu')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/sweet-lu.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Sweet Lu</h3>
+                        <span class="tipo">Blonde Ale</span>
+                        <div class="info"><span><strong>IBU:</strong> 28</span><span><strong>ABV:</strong> 4,9%</span></div>
+                    </div>
+
+                    <div class="card-cerveja" onclick="openModal('falcaonegro')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/falcao-negro.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Falcão Negro</h3>
+                        <span class="tipo">Stout</span>
+                        <div class="info"><span><strong>IBU:</strong> 35</span><span><strong>ABV:</strong> 5,8%</span></div>
+                    </div>
+
+                    <div class="card-cerveja" onclick="openModal('sexybabe')">
+                        <div class="cerveja-img" style="background-image: url('../assets/img/sexy-babe.png'); background-size: cover; background-position: center;"></div>
+                        <h3>Sexy Babe</h3>
+                        <span class="tipo">Pilsen</span>
+                        <div class="info"><span><strong>IBU:</strong> 22</span><span><strong>ABV:</strong> 5,0%</span></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL (POP-UP) -->
+    <div id="beer-modal" class="modal-overlay" onclick="closeModalOutside(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-img"><img id="modal-img" src="" alt="Cerveja"></div>
+            <div class="modal-info">
+                <h2 id="modal-title">Nome da Cerveja</h2>
+                <span class="tipo" id="modal-tipo">Estilo</span>
+                <div class="dados">
+                    <span><strong>IBU:</strong> <span id="modal-ibu">0</span></span>
+                    <span><strong>ABV:</strong> <span id="modal-abv">0%</span></span>
+                </div>
+                <div id="modal-lupulos" style="margin-bottom: 15px; font-size: 0.9rem; color: #aaa;">
+                    <strong>Lúpulos:</strong> <span id="modal-lupulo-nomes">Citra, Mosaic</span>
+                </div>
+                <p id="modal-desc">Descrição sensorial aqui.</p>
+                <div class="harmoniza">
+                    <i class="fas fa-beer" style="color: var(--primary-color); margin-right: 5px;"></i>
+                    <strong>Harmoniza com:</strong> <span id="modal-harmoniza">Prato 1, Prato 2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <footer>
+        <div class="container">
+            <p>&copy; 2026 Nibas Beer - Matinhos, PR. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/loader.js"></script>
+    <script src="../assets/js/app.js"></script>
+    
+    <script>
+        const beerData = {
+            'galatica': {
+                img: '../assets/img/galatica.png', title: 'Galática', tipo: 'IPA', ibu: '60', abv: '6,0%',
+                lupulos: 'Citra, Mosaic, Amarillo',
+                desc: 'Um equilíbrio perfeito entre o amargor característico e o aroma cítrico e frutado. Corpo médio e final seco, ideal para quem busca uma IPA refrescante e intensa.',
+                harmoniza: 'Smoke on the Water (Isca de Pescada)'
+            },
+            'ruiva77': {
+                img: '../assets/img/ruiva-77.png', title: 'Ruiva 77', tipo: 'Red Ale', ibu: '33', abv: '7,7%',
+                lupulos: 'Fuggles, East Kent Goldings',
+                desc: 'De cor rubi intensa, essa Red Ale se destaca pelo sabor maltado com notas de caramelo e toffee, entregando um final seco e levemente tostado.',
+                harmoniza: 'Blitzkrieg Bop (Carne Seca) & Crazy Train (Pernil)'
+            },
+            'comanche': {
+                img: '../assets/img/comanche.png', title: 'Comanche', tipo: 'APA', ibu: '40', abv: '5,2%',
+                lupulos: 'Cascade, Chinook',
+                desc: 'Dourada e extremamente aromática, a Comanche traz notas de frutas tropicais e resina. Uma APA leve e refrescante para todos os paladares.',
+                harmoniza: 'Back in Black (Mini Kibe)'
+            },
+            'sweetlu': {
+                img: '../assets/img/sweet-lu.png', title: 'Sweet Lu', tipo: 'Blonde Ale', ibu: '28', abv: '4,9%',
+                lupulos: 'Saaz, Hallertau',
+                desc: 'Uma Blonde Ale com carácter suave e adocicado, lembrando mel e baunilha. Extremamente fácil de beber.',
+                harmoniza: 'Highway to Cheese (Queijo) & Ace of Spades (Batata)'
+            },
+            'falcaonegro': {
+                img: '../assets/img/falcao-negro.png', title: 'Falcão Negro', tipo: 'Stout', ibu: '35', abv: '5,8%',
+                lupulos: 'Magnum, Willamette',
+                desc: 'Encorpada, escura como a noite. Traz notas marcantes de café torrado, chocolate amargo e um leve toque de baunilha.',
+                harmoniza: 'Thunderstruck (Dadinho de Tapioca)'
+            },
+            'sexybabe': {
+                img: '../assets/img/sexy-babe.png', title: 'Sexy Babe', tipo: 'Pilsen', ibu: '22', abv: '5,0%',
+                lupulos: 'Perle, Saaz',
+                desc: 'O clássico que nunca sai de moda. Uma Pilsen leve, dourada e cristalina, com amargor equilibrado.',
+                harmoniza: 'Stairway to Heaven (Camarão Empanado)'
+            }
+        };
+
+        function openModal(id) {
+            const data = beerData[id]; if(!data) return;
+            document.getElementById('modal-img').src = data.img;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-tipo').textContent = data.tipo;
+            document.getElementById('modal-ibu').textContent = data.ibu;
+            document.getElementById('modal-abv').textContent = data.abv;
+            document.getElementById('modal-lupulo-nomes').textContent = data.lupulos;
+            document.getElementById('modal-desc').textContent = data.desc;
+            document.getElementById('modal-harmoniza').textContent = data.harmoniza;
+            document.getElementById('beer-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() { document.getElementById('beer-modal').classList.remove('active'); document.body.style.overflow = 'auto'; }
+        function closeModalOutside(event) { if (event.target === document.getElementById('beer-modal')) closeModal(); }
+    </script>
+</body>
+</html>
